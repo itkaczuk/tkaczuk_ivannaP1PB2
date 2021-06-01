@@ -28,7 +28,7 @@ public class Biblioteca {
 	}
 	
 	public void prestarLibro(Libro libroPedido) {
-		if(getLibro(libroPedido.getCodigo())==null) {	
+		if(getLibro(libroPedido.getCodigo())!=null) {	
 		}
 		librosPrestados.add(libroPedido);
 		libros.remove(libroPedido);
