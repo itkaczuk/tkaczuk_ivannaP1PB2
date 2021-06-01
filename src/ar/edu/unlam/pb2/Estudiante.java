@@ -43,6 +43,8 @@ public class Estudiante {
 	}
 	
 	public void pedirLibro(Libro libroPedido) {
-		//if(libro pedido esta disponible agrega al set)
+		if(librosPrestados.size()>2) {
+			librosPrestados.add(libroPedido);
+		}
 	}
 }
