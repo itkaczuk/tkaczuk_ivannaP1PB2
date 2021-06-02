@@ -48,12 +48,15 @@ public class TestBiblioteca {
 		biblioteca.agregarLibro(libro1);
 		biblioteca.agregarLibro(libro2);
 		biblioteca.agregarLibro(libro3);
+		biblioteca.prestarLibro(libro1);
+		biblioteca.prestarLibro(libro2);
+		biblioteca.prestarLibro(libro3);
 		estudiante1.pedirLibro(libro1);
 		estudiante1.pedirLibro(libro2);
 		estudiante1.pedirLibro(libro3);
 		
 		
-		//assertEquals(biblioteca.getLibroPrestado(libro3.getCodigo()), actual);
+		assertEquals(biblioteca.getLibroPrestado(libro3.getCodigo()), libro3);
 		
 	}
 	
