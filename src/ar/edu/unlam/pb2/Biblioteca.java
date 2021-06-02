@@ -13,13 +13,14 @@ public class Biblioteca {
 	public Biblioteca(String nombre) {
 		this.nombre = nombre;
 		this.libros = new HashSet<Libro>();
+		this.librosPrestados = new HashSet<Libro>();
 	}
 	
 	public void agregarLibro(Libro libro) {
 		libros.add(libro);
 	}
 	
-	private Libro getLibro(Integer codigo) {
+	public Libro getLibro(Integer codigo) {
 		for(Libro libro : libros) {
 			if(libro.getCodigo().equals(codigo)){
 				return libro;
@@ -28,10 +29,19 @@ public class Biblioteca {
 	}
 	
 	public void prestarLibro(Libro libroPedido) {
-		if(getLibro(libroPedido.getCodigo())!=null) {	
+		if(getLibro(libroPedido.getCodigo())!=null) {
+			librosPrestados.add(libroPedido);
+			libros.remove(libroPedido);
 		}
-		librosPrestados.add(libroPedido);
-		libros.remove(libroPedido);
+		
+	}
+	
+	public Libro getLibroPrestado(Integer codigo) {
+		for(Libro libro : librosPrestados) {
+			if(libro.getCodigo().equals(codigo)){
+				return libro;
+			}
+		}return null;
 	}
 	
 	public Integer cantidadLibrosPrestados() {
@@ -43,7 +53,11 @@ public class Biblioteca {
 		libros.add(libroDevuelto);
 	}
 	
-	public void imprimirLibros() {
-		
+	public String serFotocopiable(Libro libro) {
+		if(libro.getTipodeDeLibros().toString().equals("GEOGRAFIA")) {
+			return "Geografia";
+		} if(libro.getTipodeDeLibros().toString().equals("HISTORIA")) {
+			return "Historia";
+		} return null;
 	}
 }
