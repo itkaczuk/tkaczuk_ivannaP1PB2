@@ -73,5 +73,17 @@ public class TestBiblioteca {
 	@Test
 	public void queSePuedanContarLosLibrosPrestados() {
 		
+		Libro libro1 = new Libro(01, "Manual1", "Pepe", TiposDeLibros.GEOGRAFIA);
+		
+		Biblioteca biblioteca = new Biblioteca("Juana A.");
+
+		
+		biblioteca.agregarLibro(libro1);
+		biblioteca.prestarLibro(libro1);
+		
+		
+		assertEquals((Integer)1, biblioteca.cantidadLibrosPrestados());;
+		
+		
 	}
 }
